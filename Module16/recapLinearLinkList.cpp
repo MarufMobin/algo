@@ -23,6 +23,8 @@ void inserAtHead( Node *&head, int val );
 void display( Node* val );
 int countLength( Node *&head );
 void insertionAtSpecificPossition( Node* &head, int pos, int value );
+int searchByValueUnique( Node* &head, int key );
+int searchByValueDuplicate( Node* &head, int key );
 
 
 //Insert Node Value In Tail
@@ -76,7 +78,7 @@ int countLength( Node *&head )
     }
     return lengthList;
 }
-
+//Insert A Value in Specific Position in Link list
 void insertionAtSpecificPossition( Node* &head, int pos, int value ){
 
     int i = 0;
@@ -96,6 +98,26 @@ void insertionAtSpecificPossition( Node* &head, int pos, int value ){
     temp->next = newNode;
 }
 
+//Search By Value in link List Unique Position
+int searchByValueUnique( Node* &head, int key ){
+    Node* temp = head;
+    int counter = 1;
+    if( temp == NULL ) return -1;
+    while( temp->value != key ){
+        if( temp->next == NULL ){
+            return -1;
+        }
+        temp = temp->next;
+        counter++;
+    }
+    return counter;
+}
+
+
+//Search By Value in Link list Which is Duplication Places
+int searchByValueDuplicate( Node* &head, int key ){
+
+}
 int main()
 {
     Node* head = NULL;
@@ -104,6 +126,8 @@ int main()
     cout << "Choice 1: Insertion At Head " << endl;
     cout << "Choice 2: Insertion At Tail " << endl;
     cout << "Choice 3: Insertion At Specific Position " << endl;
+    cout << "Choice 4: Search a Value(Unique List) " << endl;
+    cout << "Choice 5: Search a Value(Duplication enable List) " << endl;
     cout << "Choice 0: Terminate the Program " << endl;
 
     int n, pos;
@@ -132,6 +156,29 @@ int main()
             cout << "Enter the Position Value : ";
             cin >> n;
             insertionAtSpecificPossition( head, pos, n );
+            break;
+        case 4:
+            cout << "Enter the Value to Search : ";
+            cin >> n;
+            pos = searchByValueUnique( head, n );
+            if( pos != -1 ){
+                cout << "The Number is at Position " << pos << endl;
+            }
+            else {
+                cout << "The number is not Yet";
+            }
+            break;
+        case 5:
+            cout << "Enter the Value to Search : ";
+            cin >> n;
+            pos = searchByValueUnique( head, n );
+            if( pos != -1 ){
+                cout << "The Number is at Position " << pos << endl;
+            }
+            else {
+                cout << "The number is not Yet";
+            }
+            break;
         default:
             break;
         }
