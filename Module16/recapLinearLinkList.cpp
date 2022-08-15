@@ -24,7 +24,7 @@ void display( Node* val );
 int countLength( Node *&head );
 void insertionAtSpecificPossition( Node* &head, int pos, int value );
 int searchByValueUnique( Node* &head, int key );
-int searchByValueDuplicate( Node* &head, int key );
+void searchByValueDuplicate( Node* &head, int key );
 
 
 //Insert Node Value In Tail
@@ -115,9 +115,36 @@ int searchByValueUnique( Node* &head, int key ){
 
 
 //Search By Value in Link list Which is Duplication Places
-int searchByValueDuplicate( Node* &head, int key ){
-
+void searchByValueDuplicate( Node* &head, int key ){
+        Node* temp = head;
+        int size;
+        size = countLength(head);
+        int position[size+1], k = 1;
+        int count = 1;
+        int flag = 0;
+        while( temp != NULL ){
+            if( temp->value == key ){
+                // cout << count << " ";
+                position[k] = count;
+                k++;
+                flag = 1;
+            }
+                temp = temp->next;
+                count++;
+        }
+        cout << endl;
+        if( flag == 0 ) cout << " The Search Value is not yet in the List " << endl;
+        else{
+            position[0] = k;
+            cout << " The Value is Found At Position : "; 
+            for( int i = 1; i < position[0]; i++ ){
+                cout << position[i];
+                if( i < position[0] -1 ) cout << " , ";
+            }
+            cout << endl;
+        }
 }
+
 int main()
 {
     Node* head = NULL;
@@ -171,13 +198,16 @@ int main()
         case 5:
             cout << "Enter the Value to Search : ";
             cin >> n;
-            pos = searchByValueUnique( head, n );
-            if( pos != -1 ){
-                cout << "The Number is at Position " << pos << endl;
-            }
-            else {
-                cout << "The number is not Yet";
-            }
+            cout << "The Number is at Position : "  << endl;
+             searchByValueDuplicate(head, n);
+
+            // pos = searchByValueUnique( head, n );
+            // if( pos != -1 ){
+            //     cout << "The Number is at Position " << pos << endl;
+            // }
+            // else {
+            //     cout << "The number is not Yet";
+            // }
             break;
         default:
             break;
