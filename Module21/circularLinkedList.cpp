@@ -128,14 +128,14 @@ void deletionAtHead(Node *&head)
 void deletionAtTail(Node *&head)
 {
     Node *temp = head;
-    if (temp != NULL && temp->next != NULL)
+    if (temp != NULL && temp->next != head )
     {
-        while (temp->next->next != NULL)
+        while (temp->next->next != head )
         {
             temp = temp->next;
         }
         Node *delNode = temp->next;
-        temp->next = NULL;
+        temp->next = delNode->next;
         delete delNode;
     }
     else
