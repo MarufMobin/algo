@@ -4,7 +4,7 @@
 using namespace std;
 /* 
     Stack Of Float, double , char, String , array, Structure 
-    object of Class 
+    object of Class     
  */
 int main(){
     Stack st;
