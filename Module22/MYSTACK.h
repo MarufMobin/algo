@@ -21,6 +21,13 @@ class Stack
     int count = 0;
 
 public:
+   
+    //Stack Constractor 
+    Stack(){
+        head = NULL;
+        top = NULL;
+    }
+  
     // PUSH
     void push(int val)
     {
@@ -39,6 +46,7 @@ public:
         top = newNode;
         count++;
     }
+    
     // POP
     int pop()
     {
@@ -65,8 +73,8 @@ public:
          count--;
         return check;
     }
+    
     // EMPTY
-
     bool empty()
     {
         if (head == NULL)
@@ -74,25 +82,27 @@ public:
         else
             return false;
     }
+   
     // SIZE
     int size()
     {
         return count;
     }
+   
     // TOP
-    int top()
+    int Top()
     {
+        int cheak;
         if (top == NULL)
         {
             cout << "Stack Underflow | There is no Element in Top " << endl;
+            cheak = -1;
         }
         else
         {
-            return top->value;
+            cheak = top->value;
         }
+        return cheak;
     }
-};
 
-int main()
-{
-}
+};
