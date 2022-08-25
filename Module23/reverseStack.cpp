@@ -30,7 +30,7 @@ int main(){
     st.push(4);
     st.push(5);
 
-    reverseStack(st);
+    // reverseStack(st);
 
     while( !st.empty() ){
         cout << st.pop() << " " ;
