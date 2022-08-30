@@ -18,7 +18,44 @@ public:
 void printTree(treeNode *root, int level);
 // Space Printer also Base on Level
 void spacePrint(int level);
+// Inorder Traversal
+void inOrder(treeNode *root, string &chk);
 
+void inOrder(treeNode *root, string &chk) // Left Root Right 
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    inOrder(root->leftChild, chk);
+    chk += to_string(root->data);
+    inOrder(root->rightChild, chk);
+}
+// PreOrder Traversal
+void preOrder(treeNode *root, string &chk) // Root Left Right
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    chk += to_string(root->data);
+    preOrder(root->leftChild, chk);
+    preOrder(root->rightChild, chk);
+}
+
+// Post Order Traversal
+void postOrder(treeNode *root, string &chk) // Left Right  Root
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    postOrder(root->leftChild, chk);
+    postOrder(root->rightChild, chk);
+    chk += to_string(root->data);
+}
+
+// Print Tree Class here
 void printTree(treeNode *root, int level)
 {
     if (root == NULL) // When the Tree Empty
@@ -76,7 +113,8 @@ int main()
         int value, left, right;
         cin >> value >> left >> right;
         allNodes[i]->data = value;
-        if( left > n-1 || right > n-1 ){
+        if (left > n - 1 || right > n - 1)
+        {
             cout << "Invelid Index " << endl;
             break;
         }
@@ -90,8 +128,25 @@ int main()
             allNodes[i]->rightChild = allNodes[right];
         }
     }
-
     printTree(allNodes[0], 0);
+    string inOrderTraversalString = "";
+    string preOrderTraversalString = "";
+    string postOrderTraversalString = "";
+
+    inOrder(allNodes[0], inOrderTraversalString);
+    cout << endl;
+    cout << "In Order Traversal: " <<  inOrderTraversalString << endl;
+
+
+    preOrder(allNodes[0], preOrderTraversalString);
+    cout << endl;
+    cout << "Pre Order Traversal: " <<  preOrderTraversalString << endl;
+
+
+    postOrder(allNodes[0], postOrderTraversalString);
+    cout << endl;
+    cout << "Post Order Traversal: " <<  postOrderTraversalString << endl;
+
     return 0;
 }
 
