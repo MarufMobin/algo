@@ -1,1 +1,1 @@
-inOrder
+printLeaves
