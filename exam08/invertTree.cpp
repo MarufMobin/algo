@@ -5,9 +5,10 @@
     else
     {
         Node* temp;
-        
-        bothTreeEqual(node->leftChild);
-        bothTreeEqual(node->rightChild);
+
+
+        mirror(node->leftChild);
+        mirror(node->rightChild);
 
         temp = node->leftChild;
         node->leftChild = node->rightChild;
