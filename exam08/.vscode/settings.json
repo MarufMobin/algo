@@ -4,6 +4,7 @@
         "*.react.js": "javascriptreact",
         "*.jsx": "javascriptreact",
         "*.js": "javascriptreact",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "random": "cpp"
     }
 }
