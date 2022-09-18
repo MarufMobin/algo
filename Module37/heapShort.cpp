@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 void swap( int *a , int *b ){
     int temp;
     temp = *a;
     *a = *b;
     *b = temp;
 }
+
 void heapify( int arr[], int n ,  int current  ){
 
     int largest = current;
@@ -32,6 +34,14 @@ void printArray( int arr[], int size ){
     }
     cout << endl;
 }
+
+void heapShort( int arr[], int size ){
+
+        for( int i = size-1; i >= 0; i-- ){
+            swap( arr[0], arr[i] );
+            heapify( arr, i , 0 );
+        }
+}
 int main(){
     int n;
     cin >> n;
@@ -53,11 +63,15 @@ int main(){
     cout << "After Heapify : ";
     printArray( arr, n );
 
+    cout << endl;
+    cout << "After the heap short ";
+    heapShort( arr, n );
+    printArray( arr, n );
     return 0;
 }
-
 /* 
 9 
 2 10 1 5 4 8 3 8 7  --> input 
 10 8 8 7 4 1 3 5 2 --> after heapify 
+
  */
